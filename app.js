@@ -56,7 +56,6 @@ app.get("/", (req, res) => {
 
 app.post("/", upload.single("file-to-upload"), async (req, res) => {
   try {
-    let brandName = 0;
     // Upload image to cloudinary
     const result = await cloudinary.uploader.upload(req.file.path);
     const brandURLImage = result.secure_url;
@@ -82,7 +81,7 @@ app.post("/", upload.single("file-to-upload"), async (req, res) => {
        error_message = (`No brands found...`);
        console.log(`No brands found...`);
     }
-    res.render("result.ejs", { count: brandName, brands: brands, img: brandURLImage });
+    res.render("result.ejs", { brands: brands, img: brandURLImage });
   } catch (err) {
     console.log(err);
   }

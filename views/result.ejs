@@ -9,14 +9,44 @@
   <body>
     <img src="<%= img%>" alt="Hot dog" />
 
+
+<!-- <ul>
+  <% for (let i=0; i<brands.length; i++) { %>
+    <li>
+      <%=brands[i].name%>
+        <%=brands[i].confidence.toFixed(2)%> confidence
+    </li>
+    <% if( brands.length> 0) { %>
+      <h1>
+        <%=brands[i].name%> is the brand!
+      </h1>
+      <h1>
+        <%=brands.length%> is the length
+      </h1>
+      <% } else if ( brands.length==0) { %>
+        <h1>there is no brand!</h1>
+        <% } %>
+          <% } %>
+</ul> -->
+
+
+
+
+
     <ul>
       <% for (let i = 0; i<brands.length; i++) { %>
         <li><%=brands[i].name%> <%=brands[i].confidence.toFixed(2)%> confidence</li>
-        <% if( brands.length > 0) { %>
-          <h1><%=brands[i].name%> is the brand!</h1>
-              <% } else { %>
-             <h1><%= brands.error_message %> No brands found</h1>
-              <% } %>
+        <% if(  brands.length == 0) { %>
+          <h1>there is no brand!</h1>
+          <h1>
+            <%=brands.length%> is the length
+          </h1>
+        <% } else { %>
+          <h1>
+            <%=brands[i].name%> is the brand!
+          </h1>
+               
+         <% } %>
       <% } %>
     </ul>
 
