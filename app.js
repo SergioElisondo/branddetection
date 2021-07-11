@@ -45,6 +45,8 @@ const computerVisionClient = new ComputerVisionClient(
   endpoint
 );
 
+const ejs = require('ejs');
+
 //Server Setup
 app.set("view engine", "ejs");
 app.use(express.static("public"));
@@ -78,8 +80,8 @@ app.post("/", upload.single("file-to-upload"), async (req, res) => {
         );
       }
     } else {
-       error_message = (`No brands found...`);
-       console.log(`No brands found...`);
+       const error_message = (`No brands found...T_T`);
+       console.log(`${error_message}`);
     }
     res.render("result.ejs", { brands: brands, img: brandURLImage });
   } catch (err) {
