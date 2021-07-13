@@ -80,7 +80,7 @@ app.post("/", upload.single("file-to-upload"), async (req, res) => {
         );
       }
     } else {
-       const error_message = (`No brands found...T_T...`);
+       const error_message = (`No brands found...T_T`);
        console.log(`${error_message}`);
     }
     res.render("result.ejs", { brands: brands, img: brandURLImage });
